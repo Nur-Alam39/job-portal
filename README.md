@@ -1,7 +1,7 @@
 ## Job Portal
 **Project Name:** Job Portal Website
 
-Starting Date: 19 February 2020
+**19 February 2020 - Present**
 
 > A Project Under **PHP Laravel Framework Training** Program
 
