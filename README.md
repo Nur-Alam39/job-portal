@@ -1,17 +1,25 @@
 ### Job Portal
 **Project Name:** Job Portal Website
+Starting Date: 19 February 2020
 > A Project Under Laravel Training Program
 
-> **Instructor:** Nazrul Islam
+**Instructor:** Nazrul Islam
 
 ### Technologies:
-**Language:** PHP
+- **Language:** PHP
+- **Framework:** Laravel 6.x
+- **Database:** MySQL
 
-**Framework:** Laravel 6.x
+### Features:
+**Job Seeker:**
+- View all types of jobs
+- Can apply directly
+- Can search job
+- Can filter job category 
 
-**Database:** MySQL
-
-
+**Employer:**
+- Can post job
+- Can view applied candidate profile
 
 
 
