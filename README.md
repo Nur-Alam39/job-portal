@@ -15,7 +15,10 @@ Starting Date: 19 February 2020
 ### Technologies:
 - **Language:** PHP
 - **Framework:** Laravel 6.x
+- **CSS Framework:** Bootstrap 4
 - **Database:** MySQL
+- HTML, CSS
+- **Text Editor:** Sublime Text 
 
 ### Features:
 **Job Seeker:**
