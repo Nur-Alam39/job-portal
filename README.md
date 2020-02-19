@@ -3,10 +3,9 @@
 
 Starting Date: 19 February 2020
 
-<p align="left">
-    A Project Under **PHP Laravel Framework** Training Program
-    <img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="200">
-</p>
+A Project Under **PHP Laravel Framework** Training Program
+
+<img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="200">
 
 
 
