@@ -1,5 +1,14 @@
-## Job Portal
-Project: Job Portal Site
+### Job Portal
+**Project Name:** Job Portal Website
+> A Project Under Laravel Training Program
+**Instructor:** Nazrul Islam
+
+### Technologies:
+**Language:** PHP
+**Framework:** Laravel 6.x
+**Database:** MySQL
+
+
 
 
 
