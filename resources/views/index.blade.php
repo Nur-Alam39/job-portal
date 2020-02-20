@@ -57,7 +57,7 @@
 
         <div class="container-fluid" style="margin-top: 8%">
           <div class="row">
-           
+           <h3>Index Page</h3>
           </div>
         </div>
 
