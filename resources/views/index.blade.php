@@ -21,7 +21,7 @@
     <body>
 
         <div class="container-fluid p-2" style="margin-top: 4%">
-          <div class="row">
+          <div class="row p-2">
            <h3>Index Page</h3>
           </div>
         </div>
