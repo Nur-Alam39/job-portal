@@ -11,7 +11,7 @@
         <style type="text/css">
           body
           {
-            background-color: rgb(253, 253, 253); 
+            background-color: white; 
           }
           a.card, a.card:hover {
             color: inherit;
@@ -25,40 +25,48 @@
           }
           #inputEmail4, #inputPassword4
           {
-            border:none;
-            border-bottom:solid 1px #cccccc;
+            border:solid 1px #cccccc;
             border-radius: 0px;
+          }
+          #about a, a:hover
+          {
+            text-decoration: underline;
           }
         </style>
 
     </head>
     <body>
 
-        <div class="container-fluid p-2" style="margin-top: 6%">
-          <div class="container-fluid" style="padding: 3%; width: 80%">
+        <div class="row" style="margin-top: 5%;">
+          <div class="container-fluid" style="padding: 3%; width: 80%; 
+            ">
             <div class="card" style="border:none; background-color:transparent ">
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group col-md-8">
-                  <h5>Find Your Opportunity</h5>
+                  <h3 style="color: ">Find Your Opportunity in Bangladesh</h3>
                 </div>
               </div>
                <div class="form-row" style="">
                 <div class="form-group col-md-6">
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Job title">
+                  <label>What</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Job title, key word or company">
                 </div>
                 <div class="form-group col-md-4">
+                  <label>Where</label>
                   <input type="password" class="form-control" id="inputPassword4" placeholder="Location">
                 </div>
                 <div class="form-group col-md-2">
-                  <button type="submit" class="btn btn-primary mb-2 form-control">Search</button>
+                   <label>&nbsp;</label>
+                  <button type="submit" class="btn btn-primary mb-2 form-control">Find Jobs</button>
                 </div>
               </div>
             </div>
           </div>
           </div>
-          <div class="container-fluid" style="background-color:; padding: 2%">
-           
+          <div class="container-fluid" id="about" style="padding: 2%; text-align: center">
+            <p>Opportunity helps people to get jobs and hire employee</p>
+            <a href='/'>Opportunity is also in Bangla</a>
           </div>
         </div>
     </body>
