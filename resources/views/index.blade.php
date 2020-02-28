@@ -26,7 +26,7 @@
           #inputEmail4, #inputPassword4
           {
             border:solid 1px #cccccc;
-            border-radius: 0px;
+           
           }
           #about a, a:hover
           {
@@ -47,21 +47,21 @@
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group">
-                  <h3 style="text-align: center; ">Find Your Opportunity in Bangladesh</h3>
+                  <h3 style="text-align: center; ">Find your opportunity in Bangladesh</h3>
                 </div>
               </div>
-               <div class="form-row shadow p-4" style="">
+               <div class="form-row shadow p-4" style="border-radius: 8px;">
                 <div class="form-group col-md-6">
                   <label><b>What</b></label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Job title, key word or company">
+                  <input type="email" class="form-control"  placeholder="Job title, key word or company">
                 </div>
                 <div class="form-group col-md-4">
                   <label><b>Where</b></label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Location">
+                  <input type="text" class="form-control" placeholder="Location">
                 </div>
                 <div class="form-group col-md-2">
                    <label>&nbsp;</label>
-                  <button type="submit" class="btn btn-primary mb-2 form-control" style="border-radius: 0px;"><b>Find Jobs</b></button>
+                  <button type="submit" class="btn btn-primary mb-2 form-control" style="border-radius:;"><b>Find Jobs</b></button>
                 </div>
               </div>
             </div>

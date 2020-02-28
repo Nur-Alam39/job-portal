@@ -19,6 +19,20 @@
           {
             border:none;
           }
+          #list{
+              list-style-position: outside;
+            }
+          <?php
+             function make_list( $str ) {
+              $str = explode("\r\n", $str);  // remove the last \n or whitespace character
+              $str = array_filter($str, 'trim'); // remove any extra \r characters left behind
+              echo '<ul>';
+                foreach ($str as $line) {
+                    echo "<li style = 'list-style-position: outside;'>$line</li>";
+                }
+              echo '</ul>';
+            }
+          ?>
         </style>
     </head>
     <body>
@@ -27,35 +41,53 @@
           <div class="row" style="padding: 4%">
             <div class="col-lg-7">
               <h4><b>{{$job->title}}</b></h4>
-              <h5 class="card-subtitle mb-2 text-muted">Company Name</h5>
+              <h5 class="card-subtitle mb-4 text-muted">Company Name</h5>
               <h5>Vacancy</h5>
               <p>{{$job->vacancy}}</p>
               <h5>Job Responsibilities</h5>
-              <p>{{$job->responsibilities}}</p>
+              <div class="mb-3">
+                {{ make_list($job->responsibilities) }}
+              </div>
               <h5>Employment Status</h5>
               <p>{{$job->employment_type}}</p>
               <h5>Educational Requirements</h5>
-              <p>{{$job->education}}</p>
+              <div class="mb-3">
+                {{ make_list($job->education) }}
+              </div>
+              
               <h5>Experience Requirements</h5>
-              <p>{{$job->requirements}}</p>
+              <div class="mb-3">
+                {{ make_list($job->requirements) }}
+              </div>
               <h5>Additional Requirements</h5>
-              <p>{{$job->additional_requirements}}</p>
+              <div class="mb-3">
+                {{ make_list($job->additional_requirements) }}
+              </div>
               <h5>Job Location</h5>
-              <p>{{$job->location}}</p>
+              <div style="list-style: none;" class="mb-3">
+                {{ make_list($job->location) }}
+              </div>
               <h5>Salary</h5>
-              <p>{{$job->salary}}</p>
+              <div style="list-style: none;" class="mb-3">
+                {{ make_list($job->salary) }}
+              </div>
               <h5>Compensation & Other Benefits</h5>
-              <p>{{$job->benifits}}</p>
+              <div class="mb-3">
+                {{ make_list($job->benifits) }}
+              </div>
               <h5>Apply Instruction</h5>
-              <p>{{$job->apply_instruction}}</p>
+              <div style="list-style:;" class=" mb-3">
+                {{ make_list($job->apply_instruction) }}
+              </div>
               <hr>
               <h5>Company Information</h5>
               <h6>Name</h6>
               Website
               Email
               Address
-              <br>
-              <a href='/jobs' style='color:blue; text-decoration: underline;'>Back</a>
+            <div class="mt-4">
+              <a href='/jobs' style='color:blue; text-decoration: ; padding-top: 2%'>&#8592; Back</a>
+            </div>
             </div>
              <div class="col-lg-4 pl-4">
               <div class="card mb-3" style="border:none">
@@ -68,7 +100,7 @@
                   <b>Job Summary</b>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><b>Published at:</b> {{date('d-M-Y', strtotime($job->updated_at)+ 6*3600) }}</li>
+                  <li class="list-group-item" style="border:none"><b>Published at:</b> {{date('d-M-Y', strtotime($job->updated_at)+ 6*3600) }}</li>
                   <li class="list-group-item"><b>Vacancy:</b> {{$job->vacancy}}</li>
                   <li class="list-group-item"><b>Employment Status:</b> {{$job->employment_type}}</li>
                   <li class="list-group-item"><b>Gender:</b> {{$job->gender}}</li>

@@ -17,6 +17,18 @@
           {
             color:#d9d9d9;
           }
+          #job_post_link a:hover
+          {
+            text-decoration: underline;
+          }
+         .list-group a:hover
+          {
+            background-color: rgb(248, 248, 248);
+          }
+          #job_post > .card-title:hover
+          {
+            text-decoration: underline;
+          }
         </style>
         <?php
           function get_snippet( $str, $wordCount = 10 ) {
@@ -70,7 +82,7 @@
         ?>
     </head>
     <body>
-        <div class="form-row pl-4 pr-4" style="margin-top: 8%; width:80%">
+        <div class="form-row pl-4 pr-4" style="margin-top: 8%; width:70%">
                 <div class="form-group col-md-6">
                   <label><b>What</b></label>
                   <input type="text" class="form-control" id="inputEmail4" placeholder="Job title, key word or company">
@@ -155,7 +167,7 @@
         </div>
         <div class="container-fluid" style="margin-top: 1%">
           <div class="row p-4 pt-2">
-            <small>IT / Programming / Software Jobs (246)</small>
+            <small>IT / Programmer / Software Engineer Jobs (246)</small>
           </div>
           <div class="row">
             <div class="col-lg-3 pl-4">
@@ -163,36 +175,37 @@
                   <li class="list-group-item d-flex bg-white justify-content-between align-items-center">
                     <b>Categories</b>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Fullstack
-                    <span class="badge badge-light badge-pill p-2">14</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <a href='/' class="list-group-item d-flex justify-content-between align-items-center">
+                      Fullstack
+                      <span class="badge badge-light badge-pill p-2">14</span>
+                  </a>
+                  
+                  <a href='/'  class="list-group-item d-flex justify-content-between align-items-center">
                     Forntend
                     <span class="badge badge-light badge-pill p-2">2</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                  </a>
+                  <a href='/'  class="list-group-item d-flex justify-content-between align-items-center">
                     Backend
-                    <span class="badge badge-light badge-pill p-2">1</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge badge-light badge-pill  p-2">1</span>
+                  </a>
+                  <a href='/'  class="list-group-item d-flex justify-content-between align-items-center">
                    Java
                     <span class="badge badge-light badge-pill p-2">14</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                  </a>
+                  <a href='/'  class="list-group-item d-flex justify-content-between align-items-center">
                     ASP.NET
                     <span class="badge badge-light badge-pill p-2">2</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                  </a>
+                  <a href='/'  class="list-group-item d-flex justify-content-between align-items-center">
                     PHP/Laravel
                     <span class="badge badge-light badge-pill p-2">1</span>
-                  </li>
+                 </a>
                 </ul>
             </div>
             <div class="col-lg-8">
               @foreach($jobs as $job)
                 <a href="/jobs/show/{{$job->job_id}}">
-                  <div class="card mb-3" style="width: 80%; list-style: none">
+                  <div class="card mb-3" id="job_post" style="width: 80%; list-style: none">
                     <div class="card-body">
                       <h5 class="card-title" id="job_title">{{$job->title}}</h5>
                       <h6 class="card-subtitle mb-2 text-muted">Company Name</h6>
@@ -209,11 +222,11 @@
                           <b>Published on:</b> {{date('d-M-Y', strtotime($job->updated_at)+ 6*3600) }} &nbsp;
                           <b>Deadline:</b> {{date('d-M-Y', strtotime($job->deadline))}}
                       </li>
-                      <small>
+                      <small id="job_post_link">
                         <label>{{to_time_ago(strtotime($job->updated_at))}} <i style="color:#b3b3b3">&#8226; </i></label>
-                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: none; color: #1a8cff">Save Job</a> <i style="color:#b3b3b3">&#8226; </i>
-                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: none; color: #1a8cff">Edit</a> <i style="color:#b3b3b3">&#8226; </i>
-                        <a href="/jobs/delete/{{$job->job_id}}" style="text-decoration: none; color: #1a8cff">Remove</a>
+                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Save Job</a> <i style="color:#b3b3b3">&#8226; </i>
+                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Edit</a> <i style="color:#b3b3b3">&#8226; </i>
+                        <a href="/jobs/delete/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Remove</a>
                       </small>
                     </div>
                 </div>

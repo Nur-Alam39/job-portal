@@ -61,13 +61,14 @@
 			.navbar-nav li > a:hover
 			{
 				border-bottom:solid 2px #80b3ff;
+				border-radius: 2px;
 			}
         </style>
 	</head>
 	<body>
 		<nav class="navbar fixed-top navbar-expand-lg p-2 bg-white"
 			style="border-bottom: solid 0px #d9d9d9">
-	            <a class="navbar-brand pl-4" href="/">
+	            <a class="navbar-brand pl-4" href="/" style="color: #808080;">
 	            	<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="30px" height="30px"/><b> pportunity</b>
 	            </a>
 	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +102,7 @@
         	<div class="col-lg-12">
         		<hr>
         	</div>
-        	<div class="col-lg-12">
+        	<div class="col-lg-12" style="color: #808080;">
         		<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="20px" height="20px"/><b> pportunity</b>
         	</div>
         	<div class="col-lg-2 p-4">
