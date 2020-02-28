@@ -19,10 +19,6 @@
         <script src="https://kit.fontawesome.com/fe6cc37c91.js" crossorigin="anonymous"></script>
 
         <style type="text/css">
-          body
-          {
-            background-color: rgb(255, 255, 255); 
-          }
           a, a:hover {
             color: inherit;
             text-decoration: none;
@@ -56,7 +52,7 @@
 			{
 				border-bottom:solid 2px transparent;
 				font-size: 14px;
-				color: rgb(130, 130, 130);
+				color: #333333;
 			}
 			.navbar-nav li > a:hover
 			{
