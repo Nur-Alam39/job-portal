@@ -14,7 +14,7 @@
             background-color: white; 
           }
           a.card, a.card:hover {
-            color: inherit;
+            
           }
           .dropdown:hover>.dropdown-menu {
             display: block;

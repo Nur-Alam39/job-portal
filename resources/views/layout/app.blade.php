@@ -18,7 +18,23 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <script src="https://kit.fontawesome.com/fe6cc37c91.js" crossorigin="anonymous"></script>
 
+         <!-- Fonts -->
+	    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+	    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+	     <!-- Styles -->
+    	
+
         <style type="text/css">
+          body
+          {
+        	  margin: 0;
+			  font-family: "Nunito", sans-serif;
+			  font-size: 0.9rem;
+			  font-weight: 400;
+			  line-height: 1.6;
+			  color: #212529;
+          }
           a, a:hover {
             color: inherit;
             text-decoration: none;
@@ -59,13 +75,18 @@
 				border-bottom:solid 2px #80b3ff;
 				border-radius: 2px;
 			}
+
+			#job_post_link a:hover
+	          {
+	            text-decoration: underline;
+	          }
         </style>
 	</head>
 	<body>
 		<nav class="navbar fixed-top navbar-expand-lg p-2 bg-white"
 			style="border-bottom: solid 0px #d9d9d9">
 	            <a class="navbar-brand pl-4" href="/" style="color: #808080;">
-	            	<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="30px" height="30px"/><b> pportunity</b>
+	            	<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="25px" height="25px"/><b> pportunity</b>
 	            </a>
 	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	              <span class="navbar-toggler-icon"></span>
@@ -78,7 +99,7 @@
 	                    <li class="nav-item">
 	                      <a class="nav-link" href="/jobs/create">Post Job</a>
 	                    </li>
-	                    <li class="nav-item dropdown">
+	                    <!-- <li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          Sign in or Create Account 
 					        </a>
@@ -86,8 +107,39 @@
 					          <a class="dropdown-item" href="#">Job Seeker</a>
 					          <a class="dropdown-item" href="/employer">Employeer</a>
 					        </div>
-					     </li>
+					     </li> -->
 	              </ul>
+	              <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
 	            </div>
 	    </nav>
         <div class="container-fluid">

@@ -29,6 +29,10 @@
           {
             text-decoration: underline;
           }
+          #job_post
+          {
+            color: black;
+          }
         </style>
         <?php
           function get_snippet( $str, $wordCount = 10 ) {
@@ -207,7 +211,7 @@
                 <a href="/jobs/show/{{$job->job_id}}">
                   <div class="card mb-3" id="job_post" style="width: 80%; list-style: none">
                     <div class="card-body">
-                      <h5 class="card-title" id="job_title">{{$job->title}}</h5>
+                      <h5 class="card-title" id="job_title"><b>{{$job->title}}</b></h5>
                       <h6 class="card-subtitle mb-2 text-muted">Company Name</h6>
                       <li class="card-text">
                        <!--  <i class="fas fa-map-marker-alt"></i>&nbsp; -->{{$job->location}}
@@ -223,7 +227,7 @@
                           <b>Deadline:</b> {{date('d-M-Y', strtotime($job->deadline))}}
                       </li>
                       <small id="job_post_link">
-                        <label>{{to_time_ago(strtotime($job->updated_at))}} <i style="color:#b3b3b3">&#8226; </i></label>
+                        <label><!-- <i style="color:#999999" class="far fa-clock"></i> --> {{to_time_ago(strtotime($job->updated_at))}} <i style="color:#b3b3b3">&#8226; </i></label>
                         <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Save Job</a> <i style="color:#b3b3b3">&#8226; </i>
                         <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Edit</a> <i style="color:#b3b3b3">&#8226; </i>
                         <a href="/jobs/delete/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Remove</a>

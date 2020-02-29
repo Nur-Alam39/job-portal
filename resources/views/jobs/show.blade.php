@@ -14,14 +14,18 @@
             color: inherit;
             text-decoration: none;
           }
-
-          .list-group
-          {
-            border:none;
-          }
           #list{
               list-style-position: outside;
             }
+          .list-group a:hover
+          {
+            color: #0052cc;
+          }
+          #job_summary li
+          {
+            list-style: none;
+            border:none;
+          }
           <?php
              function make_list( $str ) {
               $str = explode("\r\n", $str);  // remove the last \n or whitespace character
@@ -91,16 +95,16 @@
             </div>
              <div class="col-lg-4 pl-4">
               <div class="card mb-3" style="border:none">
-                <p><b>Application Deadline:</b> {{date('d-M-Y', strtotime($job->deadline)+ 6*3600) }}</p>
+                <p><b>Application Deadline:</b> {{date('d-F-Y', strtotime($job->deadline)+ 6*3600) }}</p>
                 <button type="button" class="btn btn-primary btn btn-block"><b>Apply this job</b></button>
                 <button type="button" class="btn btn-light btn btn-block"><b>Save for later</b></button>
               </div>
               <div class="card mb-3">
-                <div class="card-header bg-light">
+                <div class="card-header">
                   <b>Job Summary</b>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item" style="border:none"><b>Published at:</b> {{date('d-M-Y', strtotime($job->updated_at)+ 6*3600) }}</li>
+                <ul class="list-group list-group-flush font-weight-normal" id="job_summary">
+                  <li class="list-group-item"><b>Published at:</b> {{date('d-F-Y', strtotime($job->updated_at)+ 6*3600) }}</li>
                   <li class="list-group-item"><b>Vacancy:</b> {{$job->vacancy}}</li>
                   <li class="list-group-item"><b>Employment Status:</b> {{$job->employment_type}}</li>
                   <li class="list-group-item"><b>Gender:</b> {{$job->gender}}</li>
@@ -108,16 +112,22 @@
                   <li class="list-group-item"><b>Salary:</b> {{$job->salary}}</li>
                 </ul>
               </div>
-              <div class="card">
-                <div class="card-header bg-light">
-                  <b>You can</b>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Share this Job</li>
-                  <li class="list-group-item">Print this Job</li>
-                  <li class="list-group-item">Report this Job/Company</li>
+              <ul class="list-group">
+                  <li class="list-group-item d-flex bg-light justify-content-between align-items-center">
+                    <b>You can</b>
+                  </li>
+                  <a href='/' class="list-group-item  align-items-center">
+                      <i class="far fa-share-square"></i> Share this Job
+                      <!-- <span class="badge badge-light badge-pill p-2">14</span> -->
+                  </a>
+                  <a href='/'  class="list-group-item align-items-center">
+                    <i class="far fa-star"></i> Rate this Job/Company
+                   
+                  </a>
+                  <a href='/'  class="list-group-item align-items-center">
+                    <i class="far fa-question-circle"></i> Report this Job/Company
+                  </a>
                 </ul>
-              </div>
             </div>
           </div>
         </div>
