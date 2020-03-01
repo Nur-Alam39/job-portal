@@ -126,13 +126,15 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right shadow-sm" style="border:none"aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="/users/view_profile">
+                                       {{ __('Profile') }} 
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -170,7 +172,7 @@
         	</div>
         </div>
         <div class="container-fluid text-center" style="margin: 0; padding:1%;list-style: none;">
-        	<small>&copy; 2020 Oppotunity, Dhaka, Bangladesh</small>
+        	<small>2020 &copy; Oppotunity, Dhaka, Bangladesh</small>
         </div>
 	</body>
 </html>

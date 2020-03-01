@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
+use Auth;
 
 class JobController extends Controller
 {
@@ -40,7 +41,7 @@ class JobController extends Controller
     {
         //
         $job = new Job();
-        $job->employeer_id = 1;
+        $job->employeer_id = Auth::user()->id;
         $job->location_id = 1;
         $job->category_id = 1;
         $job->title = $request->title;
