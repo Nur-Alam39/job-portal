@@ -30,10 +30,11 @@
           {
         	  margin: 0;
 			  font-family: "Nunito", sans-serif;
-			  font-size: 0.9rem;
-			  font-weight: 400;
+			  font-size: .95rem;
+			  font-weight: 100%;
 			  line-height: 1.6;
-			  color: #212529;
+			  color: #000000;
+
           }
           a, a:hover {
             color: inherit;
@@ -85,7 +86,7 @@
 	<body>
 		<nav class="navbar fixed-top navbar-expand-lg p-2 bg-white"
 			style="border-bottom: solid 0px #d9d9d9">
-	            <a class="navbar-brand pl-4" href="/" style="color: #808080;">
+	            <a class="navbar-brand pl-4" href="/" style="color: rgb(25, 25, 25);">
 	            	<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="25px" height="25px"/><b> pportunity</b>
 	            </a>
 	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,7 +153,7 @@
         	<div class="col-lg-12">
         		<hr>
         	</div>
-        	<div class="col-lg-12" style="color: #808080;">
+        	<div class="col-lg-12" style="color: rgb(25, 25, 25);">
         		<img src="https://www.pinclipart.com/picdir/big/198-1980971_sixdays-bremen-transparent-loading-circle-gif-clipart.png" width="20px" height="20px"/><b> pportunity</b>
         	</div>
         	<div class="col-lg-2 p-4">

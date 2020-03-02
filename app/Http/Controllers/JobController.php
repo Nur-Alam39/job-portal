@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
+use App\Category;
 use Auth;
 
 class JobController extends Controller
@@ -13,10 +14,21 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $jobs = Job::orderBy('updated_at','desc')->get();
+        if ($request->category)
+        {
+            $jobs = Job::where('category', '=', $request->category)->get();
+        }
+        else if ($request->location)
+        {
+            $jobs = Job::where('location', '=', $request->location)->get();
+        }
+        else
+        {
+            $jobs = Job::orderBy('updated_at','desc')->get();
+        }
         return view('jobs.index', compact('jobs'));
     }
 
@@ -41,17 +53,18 @@ class JobController extends Controller
     {
         //
         $job = new Job();
+        //return response()->json($request);
         $job->employeer_id = Auth::user()->id;
-        $job->location_id = 1;
-        $job->category_id = 1;
+        $job->category = $request->category_name;
+        $job->job_context = $request->job_context;
+        $job->keywords = $request->keywords;
         $job->title = $request->title;
         $job->vacancy = $request->vacancy;
         $job->deadline = $request->deadline;
         $job->employment_type = $request->employment_type;
         $job->location = $request->location;
-        $job->gender = "Both";
+        $job->gender = $request->gender;
         $job->age = $request->age;
-        $job->category = 1;
         $job->responsibilities = $request->responsibilities;
         $job->education = $request->education;
         $job->requirements = $request->requirements;
@@ -59,7 +72,9 @@ class JobController extends Controller
         $job->salary = $request->salary;
         $job->benifits = $request->benifits;
         $job->apply_instruction = $request->apply_instruction;
+
         $job->save();
+        Category::where('category_name', '=' , $request->category_name)->increment('no_jobs', 1);
         return redirect('/jobs');
     }
 
@@ -100,17 +115,24 @@ class JobController extends Controller
     {
         //
         $job = Job::Find($job_id);
-        $job->employeer_id = 1;
-        $job->location_id = 1;
-        $job->category_id = 1;
+
+        if ($job->category_name != $request->category_name)
+        {
+            Category::where('category_name', '=' , $job->category)->decrement('no_jobs', 1);
+            Category::where('category_name', '=' , $request->category_name)->increment('no_jobs', 1);
+        }
+
+        $job->employeer_id = Auth::user()->id;
+        $job->category = $request->category_name;
+        $job->job_context = $request->job_context;
+        $job->keywords = $request->keywords;
         $job->title = $request->title;
         $job->vacancy = $request->vacancy;
         $job->deadline = $request->deadline;
         $job->employment_type = $request->employment_type;
         $job->location = $request->location;
-        $job->gender = "Both";
+        $job->gender = $request->gender;
         $job->age = $request->age;
-        $job->category = 1;
         $job->responsibilities = $request->responsibilities;
         $job->education = $request->education;
         $job->requirements = $request->requirements;
@@ -118,6 +140,7 @@ class JobController extends Controller
         $job->salary = $request->salary;
         $job->benifits = $request->benifits;
         $job->apply_instruction = $request->apply_instruction;
+
         $job->save();
         return redirect('/jobs');
     }
@@ -133,6 +156,7 @@ class JobController extends Controller
         //
         $job = Job::Find($job_id);
         $job->delete();
+        Category::where('category_name', '=' , $job->category_name)->increment('no_jobs', -1);
         return redirect('/jobs');
     }
 }

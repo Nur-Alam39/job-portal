@@ -32,6 +32,10 @@
 			      <label for="exampleFormControlInput1">&nbsp;</label>
 			      <button type="submit" class=" form-control btn btn-primary font-weight-bold">Save</button>
 			    </div>
+			    <div class="form-group col-md-2">
+			      <label for="exampleFormControlInput1">&nbsp;</label>
+			      <a href="/categories" class=" form-control btn btn-light font-weight-bold">Cancel</a>
+			    </div>
 			  </div>
 			</form>
 		</div>

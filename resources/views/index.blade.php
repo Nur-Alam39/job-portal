@@ -36,21 +36,26 @@
           {
             font-size: 14px;
           }
+          hr
+          {
+            margin: 0;
+            padding: 0;
+          }
         </style>
 
     </head>
     <body>
 
-        <div class="row" style="margin-top: 5%;">
-          <div class="container-fluid" style="padding: 3%; width: 80%; ">
-            <div class="card" style="border:none; background-color:transparent ">
+        <div class="row" style="margin-top: 4%;">
+          <div class="container-fluid" style="padding: 4%; width: 100%; background-image: url('https://www.gstatic.com/flights/app/illustration-flights-desktop.svg'); background-size: cover; background-repeat: no-repeat; ">
+            <div class="card mx-auto" style="border:none; background-color:transparent; width: 70%">
             <div class="card-body">
               <div class="form-row">
-                <div class="form-group">
-                  <h3 style="text-align: center; ">Find your opportunity in Bangladesh</h3>
+                <div class="text-center">
+                  <h3 class="font-weight-bold">Find your opportunity in Bangladesh</h3>
                 </div>
               </div>
-               <div class="form-row shadow p-4" style="border-radius: 8px;">
+               <div class="form-row shadow p-4" style="border-radius: 8px; background-color:white">
                 <div class="form-group col-md-6">
                   <label><b>What</b></label>
                   <input type="email" class="form-control"  placeholder="Job title, key word or company">
@@ -71,7 +76,7 @@
             <p style="font-family: ; font-weight: bold">Opportunity helps people to get jobs and hire employee</p>
           </div>
           <div class="container-fluid" id="categories" style="padding: 2%; width:%; padding-left: 4%; list-style: none; text-decoration: none;">
-            <h6>Browse Categories</h6>
+            <h5><b>Browse Categories</b></h5>
             <div class="row">
               <div class="col-lg-3">
                 <li><a href="/">Accounting/Finance</a></li>
@@ -96,8 +101,7 @@
             </div>
           </div>
           <div class="container-fluid" id="categories" style="padding-left: 4%; list-style: none; text-decoration: none;">
-            <hr>
-            <h6>Divisional Jobs</h6>
+            <h5><b>Divisional Jobs</b></h5>
             <div class="row">
               <div class="col-lg-2">
                 <li><a href="/">Dhaka</a></li>
@@ -116,8 +120,8 @@
             </div>
           </div>
           <div class="container-fluid" id="categories" style="padding: 2%; width:%; padding-left: 4%; list-style: none; text-decoration: none;">
-            <hr>
-            <h6>Browse Industries</h6>
+             <h5><b>Browse Company</b></h5>
+             <line></line>
             <div class="row">
               <div class="col-lg-3">
                 <li><a href="/">Accounting/Finance</a></li>

@@ -10,6 +10,9 @@
         <link rel="icon" href="icon.png" type="image/icon type">
 
         <style type="text/css">
+          body{
+            color: black;
+          }
           h5 {
 			    position: relative;
 			}
@@ -40,7 +43,7 @@
         <div class="p-2 text-right">
                 <div class="dropdown">
                   <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Add / Edit profile section
+                    Add / edit profile section
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/users/education">Education</a>
@@ -54,7 +57,7 @@
           <div class="col-lg-3">
           	<div class="">
           		<p class="text-center">
-            		<img class="rounded-circle" alt="100x100" src="https://pngimage.net/wp-content/uploads/2018/05/dummy-profile-image-png.png" width="200px" height="200px" 
+            		<img class="rounded-circle" alt="100x100" src="https://pngimage.net/wp-content/uploads/2018/05/dummy-profile-image-png.png" width="150px" height="150px" 
   	          	data-holder-rendered="true">
 	            </p>
           		<h3 class="text-center">{{ Auth::user()->name }}</h3>
@@ -66,7 +69,7 @@
 	          		<i class="fa fa-envelope"></i> &nbsp;{{ Auth::user()->email }}<br>
 
 	          		<i class="fab fa-linkedin"></i>&nbsp;
-                <a href='https://www.linkedin.com/in/nuralam39/'>https://www.linkedin.com/in/nuralam39/</a><br>
+                <a href='https://www.linkedin.com/in/nuralam39/'>https://www.linkedin.com/in/nuralam39</a><br>
 	          		
                 <i class="fab fa-facebook"></i>
 				      </div>          		

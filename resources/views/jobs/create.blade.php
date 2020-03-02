@@ -1,16 +1,13 @@
+<!DOCTYPE html>
+<?php 
+	use App\Category; 
+?>
 @extends('layout.app')
 @section('content')
 <html>
 	<head>
 		<style type="text/css">
-			label
-			{
-				font-weight: bold;
-			}
-			body
-			{
-
-			}
+			label{font-weight: bold;}
 		</style>
 	</head>
 	<body>
@@ -22,11 +19,11 @@
 			  <div class="form-row">
 			    <div class="form-group col-md-6">
 				    <label for="exampleFormControlInput1">Job Title</label>
-				    <input type="text" class="form-control" id="exampleFormControlInput1" name="title">
+				    <input type="text" class="form-control" name="title">
 			  	</div>
 			    <div class="form-group col-md-2">
 			      <label for="exampleFormControlInput1">No. Vacancy</label>
-			      <input type="number" class="form-control" id="exampleFormControlInput1" name="vacancy">
+			      <input type="number" class="form-control" name="vacancy">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="inputZip">Application Deadline</label>
@@ -36,7 +33,7 @@
 			  <div class="form-row">
 			    <div class="form-group col-md-2">
 				    <label for="exampleFormControlSelect1">Employment Status</label>
-				    <select class="form-control" id="exampleFormControlSelect1" name="employment_type">
+				    <select class="form-control"  name="employment_type">
 				      <option value="Full-time">Full-time</option>
 				      <option value="Part-time">Part-time</option>
 				      <option value="Internship">Internship</option>
@@ -45,21 +42,24 @@
 			  </div>
 			  <div class="form-group col-md-2">
 				    <label for="exampleFormControlInput1">Salary</label>
-			    	<input type="text" class="form-control" id="exampleFormControlInput1" name="salary">
+			    	<input type="text" class="form-control"  name="salary">
 			  </div>
 			    <div class="form-group col-md-2">
 			      <label for="inputState">Location</label>
 			      <select id="inputState" class="form-control" name="location">
 			        <option selected value="Dhaka">Dhaka</option>
 			        <option value="Chattagram">Chattagram</option>
-			        <option value="Chattagram">Khulna</option>
-			        <option value="Chattagram">Sylhet</option>
+			        <option value="Khulna">Khulna</option>
+			        <option value="Sylhet">Sylhet</option>
+			        <option value="Barisal">Barisal</option>
+			        <option value="Gazipur">Gazipur</option>
+			        <option value="Anywhere in Bangladesh">Anywhere in Bangladesh</option>
 			      </select>
 			    </div>
 			    <div class="form-group col-md-3">
 			      <label for="inputState">Gender</label>
 			      <select  class="form-control" name="gender">
-			        <option selected value="Both">Both Male and Female</option>
+			        <option selected value="Both Male and Female">Both Male and Female</option>
 			        <option value="Male">Only Male</option>
 			         <option value="Female">Only Female</option>
 			      </select>
@@ -69,7 +69,20 @@
 			      <input type="text" class="form-control" name="age">
 			    </div>
 			  </div>
-			  
+			  <div class="form-row">
+				  <div class="form-group col-md-3">
+				    <label for="inputState">Job Category</label>
+			      <select  class="form-control" name="category_name">
+			      	@foreach(Category::all() as $category)
+			        	<option value="{{$category->category_name}}">{{$category->category_name}}</option>
+			        @endforeach
+			      </select>
+				  </div>
+				  <div class="form-group col-md-9">
+				    <label>Keyword</label>
+				    <textarea class="form-control"  rows="1" name="keywords"></textarea>
+				  </div>
+			  </div>
 			  <div class="form-group">
 			    <label for="exampleFormControlTextarea1">Job Context</label>
 			    <textarea class="form-control" rows="3" name="job_context"></textarea>
@@ -95,16 +108,17 @@
 			  <div class="form-row">
 				  <div class="form-group col-md-6">
 				    <label for="exampleFormControlTextarea1"> Compensation & Other Benefits</label>
-				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="benifits"></textarea>
+				    <textarea class="form-control" rows="5" name="benifits"></textarea>
 				  </div>
 				  <div class="form-group col-md-6">
 				    <label for="exampleFormControlInput1">Apply Instruction</label>
-				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="apply_instruction"></textarea>
+				    <textarea class="form-control" rows="5" name="apply_instruction"></textarea>
 				  </div>
 			  </div>
 			  <div class="text-center">
 			  	<button type="submit" class="btn btn-primary col-lg-2 font-weight-bold text-center">Post</button>
 			  </div>
+			  
 			</form>
 		</div>
 	</body>

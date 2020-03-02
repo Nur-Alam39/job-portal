@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+  use App\Category;
+?>
 @extends('layout.app')
 @section('content')
 <html>
@@ -107,6 +110,18 @@
           <div class='col-lg-1'>
             <div class="dropdown">
               <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                @foreach(Category::all() as $category)
+                  <a class="dropdown-item" href="/jobs?category={{$category->category_name}}"><option value="{{$category->category_name}}">{{$category->category_name}} ({{$category->no_jobs}})</option></a>
+                @endforeach
+             </div>
+            </div>
+          </div>
+          <div class='col-lg-1'>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Deadline
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -136,11 +151,12 @@
                 Location
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Dhaka</a>
-                <a class="dropdown-item" href="#">Chattagram</a>
-                <a class="dropdown-item" href="#">Khulna</a>
-                <a class="dropdown-item" href="#">Sylhet</a>
-                <a class="dropdown-item" href="#">Barisal</a>
+                <a class="dropdown-item" href='/jobs?location=Dhaka'>Dhaka</a>
+                <a class="dropdown-item" href='/jobs?location=Chattagram'>Chattagram</a>
+                <a class="dropdown-item" href='/jobs?location=Khulna'>Khulna</a>
+                <a class="dropdown-item" href='/jobs?location=Sylhet'>Sylhet</a>
+                <a class="dropdown-item" href='/jobs?location=Barisal'>Barisal</a>
+                <a class="dropdown-item" href='/jobs?location=Gazipur'>Gazipur</a>
              </div>
             </div>
           </div>
@@ -176,8 +192,8 @@
           <div class="row">
             <div class="col-lg-3 pl-4">
                 <ul class="list-group">
-                  <li class="list-group-item d-flex bg-white justify-content-between align-items-center">
-                    <b>Categories</b>
+                  <li class="list-group-item d-flex bg-light justify-content-between align-items-center">
+                    <b>Skills</b>
                   </li>
                   <a href='/' class="list-group-item d-flex justify-content-between align-items-center">
                       Fullstack
@@ -206,12 +222,12 @@
                  </a>
                 </ul>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-6">
               @foreach($jobs as $job)
                 <a href="/jobs/show/{{$job->job_id}}">
-                  <div class="card mb-3" id="job_post" style="width: 80%; list-style: none">
+                  <div class="card mb-3" id="job_post" style="width: 100%; list-style: none">
                     <div class="card-body">
-                      <h5 class="card-title" id="job_title"><b>{{$job->title}}</b></h5>
+                      <h5 class="card-title" id="job_title" style="color: #0052cc"><b>{{$job->title}}</b></h5>
                       <h6 class="card-subtitle mb-2 text-muted">Company Name</h6>
                       <li class="card-text">
                        <!--  <i class="fas fa-map-marker-alt"></i>&nbsp; -->{{$job->location}}
