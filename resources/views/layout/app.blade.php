@@ -32,10 +32,10 @@
          
 
         <style type="text/css">
-          body
+          body bg-light
           {
         	  margin: 0;
-			  font-family: "Nunito", sans-serif;
+			  font-family: arial, sans-serif;
 			  /*font-size: .95rem;
 			  font-weight: 100%;
 			  line-height: 1.6;

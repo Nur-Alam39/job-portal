@@ -135,20 +135,20 @@
             <div class="row m-0 p-5 d-flex justify-content-center">
                   <div class="col-lg-3 p-2 m-3 justify-content-between text-center" style="border-radius: 10px; border: solid 1px #e6e6e6">
                     <a href="/jobs"> 
-                      <h2 class="font-weight-bold" style="color: #000000;">{{ (Job::all()->count()) }}</h2>
-                      <h5 style="color:blue; font-size: 1.2rem"><b>Live Jobs</b></h5>
+                      <h3 class="font-weight-bold" style="color: #000000;">{{ (Job::all()->count()) }}</h3>
+                      <h5 style="color:; font-size: 1.2rem"><b>Live Jobs</b></h5>
                     </a>
                   </div>
                   <div class="col-lg-3 p-2 m-3 justify-content-between text-center" style="border-radius: 10px; border: solid 1px #e6e6e6">
                     <a href="/jobs"> 
-                      <h2 class="font-weight-bold" style="color: #000000;">{{ (User::all()->count()) }}</h2>
-                      <h5 style="color:blue; font-size: 1.2rem"><b>Live Resume</b></h5>
+                      <h3 class="font-weight-bold" style="color: #000000;">{{ (User::all()->count()) }}</h3>
+                      <h5 style="color:; font-size: 1.2rem"><b>Live Resume</b></h5>
                     </a>
                   </div>
                   <div class="col-lg-3 p-2 m-3 justify-content-between text-center" style="border-radius: 10px; border: solid 1px #e6e6e6">
                     <a href="/jobs"> 
-                      <h2 class="font-weight-bold" style="color: #000000;">{{ (Employeer::all()->count()) }}</h2>
-                      <h5 style="color:blue; font-size: 1.2rem"><b>Emploeers</b></h5>
+                      <h3 class="font-weight-bold" style="color: #000000;">{{ (Employeer::all()->count()) }}</h3>
+                      <h5 style="color:; font-size: 1.2rem"><b>Emploeers</b></h5>
                     </a>
                   </div>
             </div>
