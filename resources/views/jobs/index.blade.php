@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php 
   use App\Category;
+  use App\Employeer;
+   use App\Job;
 ?>
 @extends('layout.app')
 @section('content')
@@ -37,7 +39,7 @@
             color: black;
           }
         </style>
-        <?php
+         <?php
           function get_snippet( $str, $wordCount = 10 ) {
             return implode( 
               '', 
@@ -89,8 +91,22 @@
         ?>
     </head>
     <body>
-        <div class="form-row pl-4 pr-4" style="margin-top: 8%; width:70%">
-                <div class="form-group col-md-6">
+        <div class="form-row pl-4 pr-4" style="margin-top: 8%; width:75%">
+           <div class="form-group col-md-12">
+            <form class="form-group" style="margin-top: 1%;">
+                <div class="form-row" style="background-color:white">
+                  <div class="form-group col-md-8">
+                    <label><b>Search Jobs</b></label>
+                    <input type="text" class="form-control"  name='search' placeholder="Search by Job title, keyword, location or company">
+                  </div>
+                  <div class="form-group col-md-4">
+                     <label>&nbsp;</label>
+                    <button type="submit" class="btn btn-primary mb-2 form-control" style="border-radius:0px;"><b>Find Jobs</b></button>
+                  </div>
+                </div>
+            </form>
+          </div>
+                <!-- <div class="form-group col-md-6">
                   <label><b>What</b></label>
                   <input type="text" class="form-control" id="inputEmail4" placeholder="Job title, key word or company">
                 </div>
@@ -101,7 +117,7 @@
                 <div class="form-group col-md-2">
                    <label>&nbsp;</label>
                   <button type="submit" class="btn btn-primary mb-2 form-control"><b>Find Jobs</b></button>
-                </div>
+                </div> -->
         </div>
         <div class='row pl-4'>
           <div class='col-lg-1'>
@@ -166,9 +182,13 @@
                 Company
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                @foreach($jobs as $job)
+                  @foreach(Employeer::where('id', '=', $job->employeer_id)->get() as $company)
+                    <a class="dropdown-item" href="/jobs?company={{$company->id}}">
+                      <option value="{{$company->name}}">{{$company->name}}</option>
+                    </a>
+                  @endforeach
+                @endforeach
              </div>
             </div>
           </div>
@@ -187,7 +207,13 @@
         </div>
         <div class="container-fluid" style="margin-top: 1%">
           <div class="row p-4 pt-2">
-            <small>IT / Programmer / Software Engineer Jobs (246)</small>
+            @if ($category_type ?? '' != NULL)
+                <b>Category: &nbsp; </b> {{$category_type ?? ''}} ({{$jobs->count()}})
+            @elseif ($job_location ?? '' != NULL)
+                <b>Job Location:  &nbsp; </b> {{$job_location ?? ''}} ({{$jobs->count()}})
+            @elseif ($company ?? '' != NULL)
+                <b>Company:  &nbsp; </b> {{$company->name ?? ''}} ({{$jobs->count()}})
+            @endif
           </div>
           <div class="row">
             <div class="col-lg-3 pl-4">
@@ -223,12 +249,17 @@
                 </ul>
             </div>
             <div class="col-lg-6">
+              @if ($jobs->count() == 0)
+                <h6>No jobs found</h6>
+              @else
               @foreach($jobs as $job)
                 <a href="/jobs/show/{{$job->job_id}}">
                   <div class="card mb-3" id="job_post" style="width: 100%; list-style: none">
                     <div class="card-body">
                       <h5 class="card-title" id="job_title" style="color: #0052cc"><b>{{$job->title}}</b></h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Company Name</h6>
+                      @foreach(Employeer::where('id', '=', $job->employeer_id)->get() as $company)
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $company->name }}</h6>
+                      @endforeach
                       <li class="card-text">
                        <!--  <i class="fas fa-map-marker-alt"></i>&nbsp; -->{{$job->location}}
                       </li>
@@ -244,14 +275,15 @@
                       </li>
                       <small id="job_post_link">
                         <label><!-- <i style="color:#999999" class="far fa-clock"></i> --> {{to_time_ago(strtotime($job->updated_at))}} <i style="color:#b3b3b3">&#8226; </i></label>
-                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Save Job</a> <i style="color:#b3b3b3">&#8226; </i>
-                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Edit</a> <i style="color:#b3b3b3">&#8226; </i>
-                        <a href="/jobs/delete/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Remove</a>
+                        <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Save Job</a>
+                        <!-- <a href="/jobs/edit/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Edit</a> <i style="color:#b3b3b3">&#8226; </i>
+                        <a href="/jobs/delete/{{$job->job_id}}" style="text-decoration: ; color: #0052cc">Remove</a> -->
                       </small>
                     </div>
                 </div>
               </a>
               @endforeach
+              @endif
             </div>
           </div>
         </div>

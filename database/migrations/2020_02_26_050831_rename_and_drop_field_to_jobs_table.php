@@ -28,7 +28,7 @@ class RenameAndDropFieldToJobsTable extends Migration
     {
         Schema::table('jobs', function (Blueprint $table) {
             //
-            drop('experience');
+            
         });
     }
 }

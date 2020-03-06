@@ -15,7 +15,7 @@ class DropFieldToJobsTable extends Migration
     {
         Schema::table('jobs', function (Blueprint $table) {
             //
-            $table->dropColumn('experience');
+            
         });
     }
 

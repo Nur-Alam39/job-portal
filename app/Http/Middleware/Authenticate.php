@@ -3,9 +3,12 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class Authenticate extends Middleware
 {
+    //use Authenticatable;
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
@@ -18,4 +21,6 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
+
+    
 }

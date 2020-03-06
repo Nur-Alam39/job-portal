@@ -19,17 +19,36 @@ class JobController extends Controller
         //
         if ($request->category)
         {
+            $category_type = $request->category;
             $jobs = Job::where('category', '=', $request->category)->get();
+            return view('jobs.index', compact('jobs', 'category_type'));
         }
         else if ($request->location)
         {
+            $job_location = $request->location;
             $jobs = Job::where('location', '=', $request->location)->get();
+            return view('jobs.index', compact('jobs', 'job_location'));
+        }
+        else if ($request->company)
+        {
+            $company = $request->company;
+            $jobs = Job::where('employeer_id', '=', $request->company)->get();
+            return view('jobs.index', compact('jobs', 'company'));
+        }
+        else if($request->search)
+        {
+            $jobs = Job::where("title", 'like', '%' . $request->search . '%')
+                    ->orWhere("location", 'like' , '%' . $request->search . '%')
+                    ->get();
+            return view('jobs.index', compact('jobs'));
         }
         else
         {
+            $category_type = 'All Jobs';
             $jobs = Job::orderBy('updated_at','desc')->get();
+            return view('jobs.index', compact('jobs', 'category_type'));
         }
-        return view('jobs.index', compact('jobs'));
+       
     }
 
     /**
@@ -54,7 +73,7 @@ class JobController extends Controller
         //
         $job = new Job();
         //return response()->json($request);
-        $job->employeer_id = Auth::user()->id;
+        $job->employeer_id = Auth::user('employeer')->id;
         $job->category = $request->category_name;
         $job->job_context = $request->job_context;
         $job->keywords = $request->keywords;
@@ -122,7 +141,7 @@ class JobController extends Controller
             Category::where('category_name', '=' , $request->category_name)->increment('no_jobs', 1);
         }
 
-        $job->employeer_id = Auth::user()->id;
+        $job->employeer_id = Auth::user('employeer')->id;
         $job->category = $request->category_name;
         $job->job_context = $request->job_context;
         $job->keywords = $request->keywords;

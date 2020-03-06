@@ -1,3 +1,8 @@
+<?php 
+  use App\Category;
+  use App\Job;
+  use App\Employeer;
+?>
 <html>
 	<head>
 
@@ -24,16 +29,18 @@
 
 	     <!-- Styles -->
     	
+         
 
         <style type="text/css">
           body
           {
         	  margin: 0;
 			  font-family: "Nunito", sans-serif;
-			  font-size: .95rem;
+			  /*font-size: .95rem;
 			  font-weight: 100%;
 			  line-height: 1.6;
-			  color: #000000;
+			  color: #000000;*/
+              background-color: #ffffff;
 
           }
           a, a:hover {
@@ -95,11 +102,8 @@
 	            <div class="collapse navbar-collapse" id="navbarNav" >
 	              <ul class="navbar-nav">
 			            <li class="nav-item">
-	                      <a class="nav-link" href="/jobs">Find Jobs<span class="sr-only">(current)</span></a>
-	                    </li>
-	                    <li class="nav-item">
-	                      <a class="nav-link" href="/jobs/create">Post Job</a>
-	                    </li>
+                          <a class="nav-link" href="/jobs">Find Jobs<span class="sr-only">(current)</span></a>
+                        </li>
 	                    <!-- <li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          Sign in or Create Account 
@@ -110,8 +114,8 @@
 					        </div>
 					     </li> -->
 	              </ul>
-	              <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+	              <!-- <ul class="navbar-nav ml-auto">
+                        Authentication Links
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -128,22 +132,80 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right shadow-sm" style="border:none"aria-labelledby="navbarDropdown">
+                                	<a class="dropdown-item" href="/users/view_profile">
+                                       {{ __('Profile') }} 
+                                    </a>
+                                    <a class="dropdown-item" href="/users/user_dashboard">
+                                       Dashboard 
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/users/view_profile">
-                                       {{ __('Profile') }} 
-                                    </a>
+                                    
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
                         @endguest
-                    </ul>
-	            </div>
+                    </ul> -->
+                <ul class="navbar-nav ml-auto">
+                    @if(Auth::guard('web')->check())
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Job Seeker: {{ Auth::guard('web')->user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a href="{{route('home')}}" class="dropdown-item">Dashboard</a>
+                                <a class="dropdown-item" href="/users/view_profile">
+                                       {{ __('Profile') }} 
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Job Seeker</a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('employeer')->check())
+                        <li class="nav-item">
+                          <a class="nav-link" href="/jobs/create">Post Job</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Employeer: {{ Auth::guard('employeer')->user()->name }}<span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                <a href="/employeers/dashboard" class="dropdown-item">Dashboard</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="login/employeer">Employeer</a>
+                        </li>
+                    @endif
+                </ul>
+	       </div>
 	    </nav>
         <div class="container-fluid">
         	@yield('content')

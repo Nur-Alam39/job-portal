@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 @extends('layout.app')
 @section('content')
+<?php 
+  use App\Category;
+  use App\Employeer;
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -45,7 +49,9 @@
           <div class="row" style="padding: 4%">
             <div class="col-lg-7">
               <h4><b>{{$job->title}}</b></h4>
-              <h5 class="card-subtitle mb-4 text-muted">Company Name</h5>
+              @foreach(Employeer::where('id', '=', $job->employeer_id)->get() as $company)
+                  <h6 class="card-subtitle mb-2 text-muted">{{ $company->name }}</h6>
+              @endforeach
               <h5>Vacancy</h5>
               <p>{{$job->vacancy}}</p>
               <h5>Job Responsibilities</h5>
@@ -85,12 +91,14 @@
               </div>
               <hr>
               <h5>Company Information</h5>
-              <h6>Name</h6>
-              Website
-              Email
-              Address
+              <h6>{{ $company->name }}</h6>
+              <label>Website: <a style="text-decoration: underline;color: blue" href='{{ $company->website }}'>{{ $company->website }}</a></label><br>
+              <label>Email: {{ $company->email }}</label><br>
+              <label><b>Address:</b> {{ $company->address }}</label>
             <div class="mt-4">
-              <a href='/jobs' style='color:blue; text-decoration: ; padding-top: 2%'>&#8592; Back</a>
+              <a href='/jobs' style='color:; text-decoration: ; padding-top: 2%'>
+                <small><i class="fas fa-chevron-left"></i>  &nbsp;</small>Back
+              </a>
             </div>
             </div>
              <div class="col-lg-4 pl-4">
