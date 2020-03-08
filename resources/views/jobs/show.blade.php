@@ -5,6 +5,7 @@
 <?php 
   use App\Category;
   use App\Employeer;
+  use App\Application;
 ?>
 <html>
     <head>
@@ -50,9 +51,9 @@
             <div class="col-lg-7">
               <h4><b>{{$job->title}}</b></h4>
               @foreach(Employeer::where('id', '=', $job->employeer_id)->get() as $company)
-                  <h6 class="card-subtitle mb-2 text-muted">{{ $company->name }}</h6>
+                  <h5 class="card-subtitle mb-2 text-muted">{{ $company->name }}</h5>
               @endforeach
-              <h5>Vacancy</h5>
+              <h5 class="mt-5">Vacancy</h5>
               <p>{{$job->vacancy}}</p>
               <h5>Job Responsibilities</h5>
               <div class="mb-3">
@@ -101,11 +102,33 @@
               </a>
             </div>
             </div>
-             <div class="col-lg-4 pl-4">
+             <div class="col-lg-4">
               <div class="card mb-3" style="border:none">
                 <p><b>Application Deadline:</b> {{date('d-F-Y', strtotime($job->deadline)+ 6*3600) }}</p>
-                <button type="button" class="btn btn-primary btn btn-block"><b>Apply this job</b></button>
-                <button type="button" class="btn btn-light btn btn-block"><b>Save for later</b></button>
+                @php
+                  $applied = 0
+                @endphp
+                @if(Auth::guard('web')->check())
+                  @foreach(Application::where('user_id', '=', Auth::user()->id)->where('job_id', '=', $job->job_id)->get() as $application)
+                    @if ($application->count() > 0)
+                      <div class="card">
+                        <div class='card-header'><b>Applied Status</b></div>
+                        <div class='card-body'>
+                          <b>You have applied this job at</b> {{date('d-F-Y h:m A', strtotime($application->created_at)+ 6*3600) }}
+                        </div>
+                      </div>
+                      @php
+                        $applied = 1
+                      @endphp
+                    @endif
+                  @endforeach
+                @endif
+                @if ($applied == 0)
+                  <a href="/apply/{{$job->job_id}}">
+                      <button type="button" class="btn btn-primary btn btn-block mb-2"><b>Apply this job</b></button>
+                  </a>
+                  <button type="button" class="btn btn-light btn btn-block"><b>Save for later</b></button>
+                @endif
               </div>
               <div class="card mb-3">
                 <div class="card-header">

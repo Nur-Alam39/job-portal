@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Education;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -36,5 +37,11 @@ class HomeController extends Controller
     public function edit_profile()
     {
         return view('users.edit_profile');
+    }
+    public function public_profile($user_id)
+    {
+        $user = User::Find($user_id);
+        $education = Education::orderBy('passing_year','desc')->where('user_id', '=' , $user_id)->get();
+        return view('users.public_profile', compact('user', 'education'));
     }
 }

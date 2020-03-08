@@ -97,7 +97,7 @@
                 <div class="form-row" style="background-color:white">
                   <div class="form-group col-md-8">
                     <label><b>Search Jobs</b></label>
-                    <input type="text" class="form-control"  name='search' placeholder="Search by Job title, keyword, location or company">
+                    <input type="text" class="form-control" style="border-radius:0px;" name='search' placeholder="Search by Job title, keyword, location or company">
                   </div>
                   <div class="form-group col-md-4">
                      <label>&nbsp;</label>
@@ -106,18 +106,6 @@
                 </div>
             </form>
           </div>
-                <!-- <div class="form-group col-md-6">
-                  <label><b>What</b></label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Job title, key word or company">
-                </div>
-                <div class="form-group col-md-4">
-                  <label><b>Where</b></label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Location">
-                </div>
-                <div class="form-group col-md-2">
-                   <label>&nbsp;</label>
-                  <button type="submit" class="btn btn-primary mb-2 form-control"><b>Find Jobs</b></button>
-                </div> -->
         </div>
         <div class='row pl-4'>
           <div class='col-lg-1'>

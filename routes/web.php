@@ -32,6 +32,8 @@ Auth::routes();
 Route::get('/users/user_dashboard', 'HomeController@index')->name('home');
 Route::get('/users/view_profile', 'HomeController@view_profile');
 Route::get('/users/edit_profile', 'HomeController@edit_profile');
+Route::get('/users/public_profile/{user_id}', 'HomeController@public_profile');
+
 
 //Employeer
 Route::get('/employeers/dashboard', 'EmployeerController@index');
@@ -67,8 +69,15 @@ Route::get('/register/user', 'Auth\RegisterController@showUserRegisterForm');
 Route::post('/login/employeer', 'Auth\LoginController@employeerLogin');
 Route::post('/login/user', 'Auth\LoginController@userLogin');
 Route::post('/register/employeer', 'Auth\RegisterController@createEmployeer');
-Route::post('/register/user', 'Auth\RegisterController@createUser');
+Route::post('/register/user', 'Auth\RegisterController@create');
 
 Route::view('/home', 'home')->middleware('auth');
 Route::view('/employeer', 'employeer');
 Route::view('/user', 'user');
+
+//Job application
+Route::get('/apply/{job_id}', 'ApplicationController@create');
+Route::get('/employees/applicants/{job_id}', 'ApplicationController@show_applicants');
+
+
+

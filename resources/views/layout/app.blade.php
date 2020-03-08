@@ -104,53 +104,7 @@
 			            <li class="nav-item">
                           <a class="nav-link" href="/jobs">Find Jobs<span class="sr-only">(current)</span></a>
                         </li>
-	                    <!-- <li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					          Sign in or Create Account 
-					        </a>
-					        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					          <a class="dropdown-item" href="#">Job Seeker</a>
-					          <a class="dropdown-item" href="/employer">Employeer</a>
-					        </div>
-					     </li> -->
 	              </ul>
-	              <!-- <ul class="navbar-nav ml-auto">
-                        Authentication Links
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right shadow-sm" style="border:none"aria-labelledby="navbarDropdown">
-                                	<a class="dropdown-item" href="/users/view_profile">
-                                       {{ __('Profile') }} 
-                                    </a>
-                                    <a class="dropdown-item" href="/users/user_dashboard">
-                                       Dashboard 
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul> -->
                 <ul class="navbar-nav ml-auto">
                     @if(Auth::guard('web')->check())
                         <li class="nav-item dropdown">
@@ -211,7 +165,7 @@
         	@yield('content')
         </div>
         <!--Footer-->
-        <div class="row" id="footer" style="margin: 0; padding-left:3%; padding-top: 3% ;list-style: none;">
+        <div class="row" id="footer" style="margin: 0; padding-left:; padding-top: 3% ;list-style: none;">
         	<div class="col-lg-12">
         		<hr>
         	</div>
