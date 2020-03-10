@@ -50,14 +50,17 @@ Route::get('/categories/edit/{category_id}', 'CategoryController@edit');
 Route::post('/categories/update/{category_id}', 'CategoryController@update');
 Route::get('/categories/delete/{category_id}', 'CategoryController@destroy');
 
+//User Personal Information
+Route::resource('/users/personalinfo', 'PersonalinfoController');
+
 //Education Controller
 Route::get('/users/education', 'EducationController@index');
-Route::get('/users/education/create', 'EducationController@create')->middleware('auth');
+Route::get('/users/education/create', 'EducationController@create');
 Route::post('/users/education/store', 'EducationController@store');
 Route::get('/users/education/show/{edu_id}', 'EducationController@show');
-Route::get('/users/education/edit/{edu_id}', 'EducationController@edit')->middleware('auth');
+Route::get('/users/education/edit/{edu_id}', 'EducationController@edit');
 Route::post('/users/education/update/{edu_id}', 'EducationController@update');
-Route::get('/users/education/delete/{edu_id}', 'EducationController@destroy')->middleware('auth');
+Route::get('/users/education/delete/{edu_id}', 'EducationController@destroy');
 
 
 ///New Multiauth

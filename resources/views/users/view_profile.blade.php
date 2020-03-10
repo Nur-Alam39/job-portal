@@ -46,6 +46,7 @@
                     Add / edit profile section
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/users/personalinfo">Personal Information</a>
                     <a class="dropdown-item" href="/users/education">Education</a>
                     <a class="dropdown-item" href="#">Experience</a>
                     <a class="dropdown-item" href="#">Skills</a>

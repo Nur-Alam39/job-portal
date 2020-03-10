@@ -108,5 +108,6 @@ class EducationController extends Controller
     public function destroy(Education $education)
     {
         //
+        
     }
 }

@@ -184,46 +184,60 @@
                 <h4 class="text-center"><b>Browse Divisional Jobs</b></h4>
                   <div class="row m-2 pl-5">
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Dhaka">
-                            <h6>Dhaka</h6> 
-                           <label class="badge badge-primary badge-pill p-2">Live Jobs: 2</label>
+                          <small>
+                           <a href="/jobs?location=Dhaka">
+                            <b>Dhaka</b><br> 
+                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Khulna">
-                            <h6>Khulna</h6> 
-                          <label class="badge badge-primary badge-pill p-2">Live Jobs: 2</label>
+                          <small>
+                           <a href="/jobs?location=Khulna">
+                            <b>Khulna</b><br> 
+                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Chattagram">
-                            <h6>Chattagram</h6> 
-                            <label class="badge badge-primary badge-pill p-2">Live Jobs: 2</label>
+                          <small>
+                           <a href="/jobs?location=Chattagram">
+                            <b>Chattagram</b><br> 
+                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Sylhet">
-                            <h6>Sylhet</h6> 
-                            <label class="badge badge-primary badge-pill p-2">Live Jobs:2</label>
+                          
+                          <small>
+                           <a href="/jobs?location=Sylhet">
+                            <b>Sylhet</b><br> 
+                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Barisal">
-                            <h6>Barisal</h6> 
-                            <label class="badge badge-primary badge-pill p-2">Live Jobs: 2</label>
+                          
+                          <small>
+                           <a href="/jobs?location=Barisal">
+                            <b>Barisal</b><br> 
+                            <label class="badge badge-light badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-2 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
-                          <a href="/jobs?location=Rajshahi">
-                            <h6>Rajshahi</h6> 
-                          <label class="badge badge-primary badge-pill p-2">Live Jobs:2</label>
+                          <small>
+                           <a href="/jobs?location=Rajshahi">
+                            <b>Rajshahi</b><br> 
+                            <label class="badge badge-light badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
+                         </small>
                         </div>
                         <div class="col-lg-3 card p-1 m-2 bg-white rounded  text-center" style="border: solid 1px rgb(240, 240, 240)">
                           <small>
                            <a href="/jobs?location=Mymensingh">
                             <b>Mymensingh</b><br> 
-                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
+                            <label class="badge badge-light badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
                          </small>
                         </div>
@@ -231,7 +245,7 @@
                          <small>
                            <a href="/jobs?location=Rangpur">
                             <b>Rangpur</b><br> 
-                            <label class="badge badge-primary badge-pill p-2 mt-2">Live Jobs:2</label>
+                            <label class="badge badge-light badge-pill p-2 mt-2">Live Jobs:2</label>
                           </a>
                          </small>
                         </div>
