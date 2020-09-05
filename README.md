@@ -1,5 +1,5 @@
-## Job Portal
-**Project Name:** Opportunity
+## Oppotunity
+Opportunity is an online job portal.
 
 19 February 2020 - Present
 
