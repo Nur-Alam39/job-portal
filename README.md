@@ -27,3 +27,13 @@ Opportunity is an online job portal.
 - Can post job
 - Can view applied candidate profile
 
+**Screenshots**
+
+1. Home Page:
+
+![job_portal_index_page](https://user-images.githubusercontent.com/23233774/99152318-4606cf00-26cb-11eb-9f3e-1cfb0804f223.png)
+
+2. Job Search Result Page:
+
+![it_jobs](https://user-images.githubusercontent.com/23233774/99152314-443d0b80-26cb-11eb-8644-bbd0952da920.png)
+
